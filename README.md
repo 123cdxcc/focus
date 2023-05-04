@@ -1,3 +1,5 @@
+# 项目介绍
+项目使用gin+gorm，sql语句使用原生执行
 # 查询总量
 ```sql
 select count(id) as total from p_user;
