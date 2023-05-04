@@ -17,3 +17,15 @@ func GetQueryInt(c *gin.Context, key string) (int, error) {
 	}
 	return keyInt, nil
 }
+
+func GetFromInt(c *gin.Context, key string) (int, error) {
+	keyStr, ok := c.GetPostForm(key)
+	if !ok {
+		return 0, errors.New("没有" + key + "参数")
+	}
+	keyInt, err := strconv.Atoi(keyStr)
+	if err != nil {
+		return 0, errors.New(key + "不是int")
+	}
+	return keyInt, nil
+}

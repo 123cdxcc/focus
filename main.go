@@ -20,19 +20,19 @@ func main() {
 	db = dbT
 	r := gin.Default()
 	//api := r.Group("api")
-	r.GET("/api/v1/order/list", handler)
+	r.POST("/api/v1/order/list", handler)
 	r.Run() // 监听并在 0.0.0.0:8080 上启动服务
 }
 
 func handler(c *gin.Context) {
 	//获取前端传递参数
-	page, err := common.GetQueryInt(c, "page")
+	page, err := common.GetFromInt(c, "page")
 	if err != nil {
 		common.ErrorResp(c, err)
 		return
 	}
 	//获取前端传递参数
-	pers, err := common.GetQueryInt(c, "pers")
+	pers, err := common.GetFromInt(c, "pers")
 	if err != nil {
 		common.ErrorResp(c, err)
 		return
