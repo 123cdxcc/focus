@@ -1,5 +1,10 @@
 # 项目介绍
-项目使用gin+gorm，sql语句使用原生执行
+项目使用gin+gorm
+
+文件详情：
+    main.go:路由回调地址
+    model.go:项目实体
+    common:公共方法
 # 查询总量
 ```sql
 select count(id) as total from p_user;
